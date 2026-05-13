@@ -1,0 +1,612 @@
+[
+  {
+    "class": "ModuleScript",
+    "name": "Configurations",
+    "path": "ReplicatedStorage/Apple/Configurations",
+    "lines": 6,
+    "chars": 87,
+    "disabled": false,
+    "index": 1,
+    "file": "scripts/001_ModuleScript_ReplicatedStorage_Apple_Configurations.luau"
+  },
+  {
+    "class": "LocalScript",
+    "name": "LocalScript",
+    "path": "ReplicatedStorage/Apple/LocalScript",
+    "lines": 34,
+    "chars": 935,
+    "disabled": false,
+    "index": 2,
+    "file": "scripts/002_LocalScript_ReplicatedStorage_Apple_LocalScript.luau"
+  },
+  {
+    "class": "Script",
+    "name": "ServerSideHandler",
+    "path": "ReplicatedStorage/Apple/ServerSideHandler",
+    "lines": 38,
+    "chars": 947,
+    "disabled": false,
+    "index": 3,
+    "file": "scripts/003_Script_ReplicatedStorage_Apple_ServerSideHandler.luau"
+  },
+  {
+    "class": "Script",
+    "name": "FireBallBehaviour",
+    "path": "ReplicatedStorage/Magic/FireBall_Prefab/FireBallBehaviour",
+    "lines": 80,
+    "chars": 1897,
+    "disabled": false,
+    "index": 4,
+    "file": "scripts/004_Script_ReplicatedStorage_Magic_FireBall_Prefab_FireBallBehaviour.luau"
+  },
+  {
+    "class": "Script",
+    "name": "IceArrowBehaviour",
+    "path": "ReplicatedStorage/Magic/IceArrowPrefab/IceArrowBehaviour",
+    "lines": 83,
+    "chars": 1937,
+    "disabled": false,
+    "index": 5,
+    "file": "scripts/005_Script_ReplicatedStorage_Magic_IceArrowPrefab_IceArrowBehaviour.luau"
+  },
+  {
+    "class": "Script",
+    "name": "SpikesBehaviour",
+    "path": "ReplicatedStorage/Magic/Spikes_Prefab/SpikesBehaviour",
+    "lines": 52,
+    "chars": 1168,
+    "disabled": false,
+    "index": 6,
+    "file": "scripts/006_Script_ReplicatedStorage_Magic_Spikes_Prefab_SpikesBehaviour.luau"
+  },
+  {
+    "class": "LocalScript",
+    "name": "Animate",
+    "path": "ReplicatedStorage/Rigs/Archer/Animate",
+    "lines": 584,
+    "chars": 15615,
+    "disabled": false,
+    "index": 7,
+    "file": "scripts/007_LocalScript_ReplicatedStorage_Rigs_Archer_Animate.luau"
+  },
+  {
+    "class": "LocalScript",
+    "name": "Animate",
+    "path": "ReplicatedStorage/Rigs/Archer/Animate",
+    "lines": 584,
+    "chars": 15615,
+    "disabled": false,
+    "index": 8,
+    "file": "scripts/008_LocalScript_ReplicatedStorage_Rigs_Archer_Animate.luau"
+  },
+  {
+    "class": "Script",
+    "name": "Archer_Behaviour",
+    "path": "ReplicatedStorage/Rigs/Archer/Archer_Behaviour",
+    "lines": 128,
+    "chars": 2983,
+    "disabled": false,
+    "index": 9,
+    "file": "scripts/009_Script_ReplicatedStorage_Rigs_Archer_Archer_Behaviour.luau"
+  },
+  {
+    "class": "Script",
+    "name": "Archer_Behaviour",
+    "path": "ReplicatedStorage/Rigs/Archer/Archer_Behaviour",
+    "lines": 128,
+    "chars": 2983,
+    "disabled": false,
+    "index": 10,
+    "file": "scripts/010_Script_ReplicatedStorage_Rigs_Archer_Archer_Behaviour.luau"
+  },
+  {
+    "class": "Script",
+    "name": "MoneyGetScript",
+    "path": "ReplicatedStorage/Rigs/Archer/MoneyGetScript",
+    "lines": 35,
+    "chars": 853,
+    "disabled": false,
+    "index": 11,
+    "file": "scripts/011_Script_ReplicatedStorage_Rigs_Archer_MoneyGetScript.luau"
+  },
+  {
+    "class": "Script",
+    "name": "MoneyGetScript",
+    "path": "ReplicatedStorage/Rigs/Archer/MoneyGetScript",
+    "lines": 35,
+    "chars": 853,
+    "disabled": false,
+    "index": 12,
+    "file": "scripts/012_Script_ReplicatedStorage_Rigs_Archer_MoneyGetScript.luau"
+  },
+  {
+    "class": "Script",
+    "name": "Magicion_Behaviour",
+    "path": "ReplicatedStorage/Rigs/Magicion/Magicion_Behaviour",
+    "lines": 138,
+    "chars": 3394,
+    "disabled": false,
+    "index": 13,
+    "file": "scripts/013_Script_ReplicatedStorage_Rigs_Magicion_Magicion_Behaviour.luau"
+  },
+  {
+    "class": "Script",
+    "name": "MoneyGetScript",
+    "path": "ReplicatedStorage/Rigs/Magicion/MoneyGetScript",
+    "lines": 35,
+    "chars": 853,
+    "disabled": false,
+    "index": 14,
+    "file": "scripts/014_Script_ReplicatedStorage_Rigs_Magicion_MoneyGetScript.luau"
+  },
+  {
+    "class": "Script",
+    "name": "Script",
+    "path": "ReplicatedStorage/Rigs/Magicion/Sound/Script",
+    "lines": 12,
+    "chars": 220,
+    "disabled": false,
+    "index": 15,
+    "file": "scripts/015_Script_ReplicatedStorage_Rigs_Magicion_Sound_Script.luau"
+  },
+  {
+    "class": "ModuleScript",
+    "name": "JumpBoostModule",
+    "path": "ServerScriptService/Module/JumpBoostModule",
+    "lines": 15,
+    "chars": 290,
+    "disabled": false,
+    "index": 16,
+    "file": "scripts/016_ModuleScript_ServerScriptService_Module_JumpBoostModule.luau"
+  },
+  {
+    "class": "ModuleScript",
+    "name": "SpeedModule",
+    "path": "ServerScriptService/Module/SpeedModule",
+    "lines": 15,
+    "chars": 213,
+    "disabled": false,
+    "index": 17,
+    "file": "scripts/017_ModuleScript_ServerScriptService_Module_SpeedModule.luau"
+  },
+  {
+    "class": "Script",
+    "name": "MoneyGenScript",
+    "path": "ServerScriptService/MoneyGenScript",
+    "lines": 52,
+    "chars": 1226,
+    "disabled": false,
+    "index": 18,
+    "file": "scripts/018_Script_ServerScriptService_MoneyGenScript.luau"
+  },
+  {
+    "class": "Script",
+    "name": "DataStore",
+    "path": "ServerScriptService/MyFolder/DataStore",
+    "lines": 145,
+    "chars": 3346,
+    "disabled": false,
+    "index": 19,
+    "file": "scripts/019_Script_ServerScriptService_MyFolder_DataStore.luau"
+  },
+  {
+    "class": "Script",
+    "name": "Magic",
+    "path": "ServerScriptService/MyFolder/Magic",
+    "lines": 324,
+    "chars": 8352,
+    "disabled": false,
+    "index": 20,
+    "file": "scripts/020_Script_ServerScriptService_MyFolder_Magic.luau"
+  },
+  {
+    "class": "Script",
+    "name": "NPCspawnScript",
+    "path": "ServerScriptService/NPCspawnScript",
+    "lines": 73,
+    "chars": 1745,
+    "disabled": false,
+    "index": 21,
+    "file": "scripts/021_Script_ServerScriptService_NPCspawnScript.luau"
+  },
+  {
+    "class": "Script",
+    "name": "Time_of_day",
+    "path": "ServerScriptService/Time_of_day",
+    "lines": 6,
+    "chars": 88,
+    "disabled": true,
+    "index": 22,
+    "file": "scripts/022_Script_ServerScriptService_Time_of_day.luau"
+  },
+  {
+    "class": "LocalScript",
+    "name": "LocalScript",
+    "path": "StarterGui/ManaGui/ManaGenFrame/LocalScript",
+    "lines": 1,
+    "chars": 57,
+    "disabled": false,
+    "index": 23,
+    "file": "scripts/023_LocalScript_StarterGui_ManaGui_ManaGenFrame_LocalScript.luau"
+  },
+  {
+    "class": "LocalScript",
+    "name": "LocalScript",
+    "path": "StarterGui/ManaGui/Welcome/TextButton/LocalScript",
+    "lines": 5,
+    "chars": 94,
+    "disabled": false,
+    "index": 24,
+    "file": "scripts/024_LocalScript_StarterGui_ManaGui_Welcome_TextButton_LocalScript.luau"
+  },
+  {
+    "class": "Script",
+    "name": "AppleSellScript",
+    "path": "StarterGui/ShopGui/ShopFrame/ApplesFrame/Cost/AppleSellScript",
+    "lines": 48,
+    "chars": 1187,
+    "disabled": false,
+    "index": 25,
+    "file": "scripts/025_Script_StarterGui_ShopGui_ShopFrame_ApplesFrame_Cost_AppleSellScript.luau"
+  },
+  {
+    "class": "LocalScript",
+    "name": "Shopping",
+    "path": "StarterGui/ShopGui/Shopping",
+    "lines": 141,
+    "chars": 4617,
+    "disabled": false,
+    "index": 26,
+    "file": "scripts/026_LocalScript_StarterGui_ShopGui_Shopping.luau"
+  },
+  {
+    "class": "Script",
+    "name": "HPscript",
+    "path": "StarterPlayer/StarterCharacterScripts/HPscript",
+    "lines": 10,
+    "chars": 358,
+    "disabled": false,
+    "index": 27,
+    "file": "scripts/027_Script_StarterPlayer_StarterCharacterScripts_HPscript.luau"
+  },
+  {
+    "class": "LocalScript",
+    "name": "Input",
+    "path": "StarterPlayer/StarterPlayerScripts/Input",
+    "lines": 132,
+    "chars": 3204,
+    "disabled": false,
+    "index": 28,
+    "file": "scripts/028_LocalScript_StarterPlayer_StarterPlayerScripts_Input.luau"
+  },
+  {
+    "class": "LocalScript",
+    "name": "Value",
+    "path": "StarterPlayer/StarterPlayerScripts/Value",
+    "lines": 41,
+    "chars": 1505,
+    "disabled": false,
+    "index": 29,
+    "file": "scripts/029_LocalScript_StarterPlayer_StarterPlayerScripts_Value.luau"
+  },
+  {
+    "class": "Script",
+    "name": "JumpBoostersController",
+    "path": "Workspace/World/Boosters/Jump_Boosters/JumpBoostersController",
+    "lines": 34,
+    "chars": 799,
+    "disabled": false,
+    "index": 30,
+    "file": "scripts/030_Script_Workspace_World_Boosters_Jump_Boosters_JumpBoostersController.luau"
+  },
+  {
+    "class": "Script",
+    "name": "SpeedBoostersController",
+    "path": "Workspace/World/Boosters/SpeedBoosters/SpeedBoostersController",
+    "lines": 34,
+    "chars": 780,
+    "disabled": false,
+    "index": 31,
+    "file": "scripts/031_Script_Workspace_World_Boosters_SpeedBoosters_SpeedBoostersController.luau"
+  },
+  {
+    "class": "Script",
+    "name": "AppleDropScript",
+    "path": "Workspace/World/Orchard Trees/AppleTree/AppleDropScript",
+    "lines": 19,
+    "chars": 706,
+    "disabled": false,
+    "index": 32,
+    "file": "scripts/032_Script_Workspace_World_Orchard Trees_AppleTree_AppleDropScript.luau"
+  },
+  {
+    "class": "Script",
+    "name": "AppleDropScript",
+    "path": "Workspace/World/Orchard Trees/AppleTree/AppleDropScript",
+    "lines": 19,
+    "chars": 706,
+    "disabled": false,
+    "index": 33,
+    "file": "scripts/033_Script_Workspace_World_Orchard Trees_AppleTree_AppleDropScript.luau"
+  },
+  {
+    "class": "Script",
+    "name": "AppleDropScript",
+    "path": "Workspace/World/Orchard Trees/AppleTree/AppleDropScript",
+    "lines": 19,
+    "chars": 706,
+    "disabled": false,
+    "index": 34,
+    "file": "scripts/034_Script_Workspace_World_Orchard Trees_AppleTree_AppleDropScript.luau"
+  },
+  {
+    "class": "Script",
+    "name": "AppleDropScript",
+    "path": "Workspace/World/Orchard Trees/AppleTree/AppleDropScript",
+    "lines": 19,
+    "chars": 706,
+    "disabled": false,
+    "index": 35,
+    "file": "scripts/035_Script_Workspace_World_Orchard Trees_AppleTree_AppleDropScript.luau"
+  },
+  {
+    "class": "Script",
+    "name": "AppleDropScript",
+    "path": "Workspace/World/Orchard Trees/AppleTree/AppleDropScript",
+    "lines": 19,
+    "chars": 706,
+    "disabled": false,
+    "index": 36,
+    "file": "scripts/036_Script_Workspace_World_Orchard Trees_AppleTree_AppleDropScript.luau"
+  },
+  {
+    "class": "ModuleScript",
+    "name": "Configurations",
+    "path": "Workspace/World/Orchard Trees/AppleTree/AppleDropScript/Apple/Configurations",
+    "lines": 6,
+    "chars": 87,
+    "disabled": false,
+    "index": 37,
+    "file": "scripts/037_ModuleScript_Workspace_World_Orchard Trees_AppleTree_AppleDropScript_Apple_Configurations.luau"
+  },
+  {
+    "class": "ModuleScript",
+    "name": "Configurations",
+    "path": "Workspace/World/Orchard Trees/AppleTree/AppleDropScript/Apple/Configurations",
+    "lines": 6,
+    "chars": 87,
+    "disabled": false,
+    "index": 38,
+    "file": "scripts/038_ModuleScript_Workspace_World_Orchard Trees_AppleTree_AppleDropScript_Apple_Configurations.luau"
+  },
+  {
+    "class": "ModuleScript",
+    "name": "Configurations",
+    "path": "Workspace/World/Orchard Trees/AppleTree/AppleDropScript/Apple/Configurations",
+    "lines": 6,
+    "chars": 87,
+    "disabled": false,
+    "index": 39,
+    "file": "scripts/039_ModuleScript_Workspace_World_Orchard Trees_AppleTree_AppleDropScript_Apple_Configurations.luau"
+  },
+  {
+    "class": "ModuleScript",
+    "name": "Configurations",
+    "path": "Workspace/World/Orchard Trees/AppleTree/AppleDropScript/Apple/Configurations",
+    "lines": 6,
+    "chars": 87,
+    "disabled": false,
+    "index": 40,
+    "file": "scripts/040_ModuleScript_Workspace_World_Orchard Trees_AppleTree_AppleDropScript_Apple_Configurations.luau"
+  },
+  {
+    "class": "ModuleScript",
+    "name": "Configurations",
+    "path": "Workspace/World/Orchard Trees/AppleTree/AppleDropScript/Apple/Configurations",
+    "lines": 6,
+    "chars": 87,
+    "disabled": false,
+    "index": 41,
+    "file": "scripts/041_ModuleScript_Workspace_World_Orchard Trees_AppleTree_AppleDropScript_Apple_Configurations.luau"
+  },
+  {
+    "class": "LocalScript",
+    "name": "LocalScript",
+    "path": "Workspace/World/Orchard Trees/AppleTree/AppleDropScript/Apple/LocalScript",
+    "lines": 34,
+    "chars": 935,
+    "disabled": false,
+    "index": 42,
+    "file": "scripts/042_LocalScript_Workspace_World_Orchard Trees_AppleTree_AppleDropScript_Apple_LocalScript.luau"
+  },
+  {
+    "class": "LocalScript",
+    "name": "LocalScript",
+    "path": "Workspace/World/Orchard Trees/AppleTree/AppleDropScript/Apple/LocalScript",
+    "lines": 34,
+    "chars": 934,
+    "disabled": false,
+    "index": 43,
+    "file": "scripts/043_LocalScript_Workspace_World_Orchard Trees_AppleTree_AppleDropScript_Apple_LocalScript.luau"
+  },
+  {
+    "class": "LocalScript",
+    "name": "LocalScript",
+    "path": "Workspace/World/Orchard Trees/AppleTree/AppleDropScript/Apple/LocalScript",
+    "lines": 34,
+    "chars": 934,
+    "disabled": false,
+    "index": 44,
+    "file": "scripts/044_LocalScript_Workspace_World_Orchard Trees_AppleTree_AppleDropScript_Apple_LocalScript.luau"
+  },
+  {
+    "class": "LocalScript",
+    "name": "LocalScript",
+    "path": "Workspace/World/Orchard Trees/AppleTree/AppleDropScript/Apple/LocalScript",
+    "lines": 34,
+    "chars": 934,
+    "disabled": false,
+    "index": 45,
+    "file": "scripts/045_LocalScript_Workspace_World_Orchard Trees_AppleTree_AppleDropScript_Apple_LocalScript.luau"
+  },
+  {
+    "class": "LocalScript",
+    "name": "LocalScript",
+    "path": "Workspace/World/Orchard Trees/AppleTree/AppleDropScript/Apple/LocalScript",
+    "lines": 34,
+    "chars": 934,
+    "disabled": false,
+    "index": 46,
+    "file": "scripts/046_LocalScript_Workspace_World_Orchard Trees_AppleTree_AppleDropScript_Apple_LocalScript.luau"
+  },
+  {
+    "class": "Script",
+    "name": "ServerSideHandler",
+    "path": "Workspace/World/Orchard Trees/AppleTree/AppleDropScript/Apple/ServerSideHandler",
+    "lines": 38,
+    "chars": 947,
+    "disabled": false,
+    "index": 47,
+    "file": "scripts/047_Script_Workspace_World_Orchard Trees_AppleTree_AppleDropScript_Apple_ServerSideHandler.luau"
+  },
+  {
+    "class": "Script",
+    "name": "ServerSideHandler",
+    "path": "Workspace/World/Orchard Trees/AppleTree/AppleDropScript/Apple/ServerSideHandler",
+    "lines": 38,
+    "chars": 947,
+    "disabled": false,
+    "index": 48,
+    "file": "scripts/048_Script_Workspace_World_Orchard Trees_AppleTree_AppleDropScript_Apple_ServerSideHandler.luau"
+  },
+  {
+    "class": "Script",
+    "name": "ServerSideHandler",
+    "path": "Workspace/World/Orchard Trees/AppleTree/AppleDropScript/Apple/ServerSideHandler",
+    "lines": 38,
+    "chars": 947,
+    "disabled": false,
+    "index": 49,
+    "file": "scripts/049_Script_Workspace_World_Orchard Trees_AppleTree_AppleDropScript_Apple_ServerSideHandler.luau"
+  },
+  {
+    "class": "Script",
+    "name": "ServerSideHandler",
+    "path": "Workspace/World/Orchard Trees/AppleTree/AppleDropScript/Apple/ServerSideHandler",
+    "lines": 38,
+    "chars": 947,
+    "disabled": false,
+    "index": 50,
+    "file": "scripts/050_Script_Workspace_World_Orchard Trees_AppleTree_AppleDropScript_Apple_ServerSideHandler.luau"
+  },
+  {
+    "class": "Script",
+    "name": "ServerSideHandler",
+    "path": "Workspace/World/Orchard Trees/AppleTree/AppleDropScript/Apple/ServerSideHandler",
+    "lines": 38,
+    "chars": 947,
+    "disabled": false,
+    "index": 51,
+    "file": "scripts/051_Script_Workspace_World_Orchard Trees_AppleTree_AppleDropScript_Apple_ServerSideHandler.luau"
+  },
+  {
+    "class": "ModuleScript",
+    "name": "DropConfigurations",
+    "path": "Workspace/World/Orchard Trees/AppleTree/AppleDropScript/DropConfigurations",
+    "lines": 8,
+    "chars": 396,
+    "disabled": false,
+    "index": 52,
+    "file": "scripts/052_ModuleScript_Workspace_World_Orchard Trees_AppleTree_AppleDropScript_DropConfigurations.luau"
+  },
+  {
+    "class": "ModuleScript",
+    "name": "DropConfigurations",
+    "path": "Workspace/World/Orchard Trees/AppleTree/AppleDropScript/DropConfigurations",
+    "lines": 8,
+    "chars": 396,
+    "disabled": false,
+    "index": 53,
+    "file": "scripts/053_ModuleScript_Workspace_World_Orchard Trees_AppleTree_AppleDropScript_DropConfigurations.luau"
+  },
+  {
+    "class": "ModuleScript",
+    "name": "DropConfigurations",
+    "path": "Workspace/World/Orchard Trees/AppleTree/AppleDropScript/DropConfigurations",
+    "lines": 8,
+    "chars": 396,
+    "disabled": false,
+    "index": 54,
+    "file": "scripts/054_ModuleScript_Workspace_World_Orchard Trees_AppleTree_AppleDropScript_DropConfigurations.luau"
+  },
+  {
+    "class": "ModuleScript",
+    "name": "DropConfigurations",
+    "path": "Workspace/World/Orchard Trees/AppleTree/AppleDropScript/DropConfigurations",
+    "lines": 8,
+    "chars": 396,
+    "disabled": false,
+    "index": 55,
+    "file": "scripts/055_ModuleScript_Workspace_World_Orchard Trees_AppleTree_AppleDropScript_DropConfigurations.luau"
+  },
+  {
+    "class": "ModuleScript",
+    "name": "DropConfigurations",
+    "path": "Workspace/World/Orchard Trees/AppleTree/AppleDropScript/DropConfigurations",
+    "lines": 8,
+    "chars": 396,
+    "disabled": false,
+    "index": 56,
+    "file": "scripts/056_ModuleScript_Workspace_World_Orchard Trees_AppleTree_AppleDropScript_DropConfigurations.luau"
+  },
+  {
+    "class": "Script",
+    "name": "Script",
+    "path": "Workspace/World/Structures/Mill/Mechanism/GearShaft/Part/Script",
+    "lines": 1,
+    "chars": 34,
+    "disabled": false,
+    "index": 57,
+    "file": "scripts/057_Script_Workspace_World_Structures_Mill_Mechanism_GearShaft_Part_Script.luau"
+  },
+  {
+    "class": "Script",
+    "name": "Script",
+    "path": "Workspace/World/Structures/Mill/Mechanism/MillstoneShaft/Part/Script",
+    "lines": 1,
+    "chars": 34,
+    "disabled": false,
+    "index": 58,
+    "file": "scripts/058_Script_Workspace_World_Structures_Mill_Mechanism_MillstoneShaft_Part_Script.luau"
+  },
+  {
+    "class": "Script",
+    "name": "Script",
+    "path": "Workspace/World/Structures/Mill/Mechanism/WaterWheelShaft/Shaft/Part/Script",
+    "lines": 1,
+    "chars": 34,
+    "disabled": false,
+    "index": 59,
+    "file": "scripts/059_Script_Workspace_World_Structures_Mill_Mechanism_WaterWheelShaft_Shaft_Part_Script.luau"
+  },
+  {
+    "class": "Script",
+    "name": "Script",
+    "path": "Workspace/World/Structures/Smithy/Bellows/FirePart/Script",
+    "lines": 4,
+    "chars": 166,
+    "disabled": false,
+    "index": 60,
+    "file": "scripts/060_Script_Workspace_World_Structures_Smithy_Bellows_FirePart_Script.luau"
+  },
+  {
+    "class": "Script",
+    "name": "Script",
+    "path": "Workspace/World/Structures/Smithy/Bellows/Script",
+    "lines": 42,
+    "chars": 1119,
+    "disabled": false,
+    "index": 61,
+    "file": "scripts/061_Script_Workspace_World_Structures_Smithy_Bellows_Script.luau"
+  }
+]

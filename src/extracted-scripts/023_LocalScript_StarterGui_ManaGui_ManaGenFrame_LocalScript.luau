@@ -1,0 +1,1 @@
+-- UI styling is saved directly in StarterGui properties.

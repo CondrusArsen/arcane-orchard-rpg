@@ -1,0 +1,18 @@
+# Roblox Studio local/temp files
+*.rbxl.lock
+*.rbxlx.lock
+*.tmp
+*.bak
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local analysis scratch can be regenerated
+analysis/
+analysis_clean/
+
+# Working copy kept outside the GitHub-facing structure
+/RPG_clean.rbxlx
