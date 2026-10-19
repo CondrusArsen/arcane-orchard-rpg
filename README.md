@@ -1,12 +1,12 @@
 # Arcane Orchard RPG
 
-Arcane Orchard RPG is a Roblox RPG prototype focused on magic combat, NPC encounters, resource collection, and a small upgrade economy. The project started as a learning game built together with a child and was later cleaned up into a portfolio-ready prototype with safer server logic, clearer UI, and extracted Luau scripts for review.
+Arcane Orchard RPG is a Roblox RPG prototype focused on magic combat, NPC encounters, resource collection, and a small upgrade economy. The project started as a learning game built together with a child and was later revised with server-side spell checks, clearer UI, and extracted Luau scripts for review. It remains a learning prototype.
 
 ## Project Highlights
 
 - Medieval/fantasy Roblox world with fields, orchard trees, structures, props, boosters, and NPC patrol routes.
 - Magic system with fireball, ice arrow, spikes, buildable wall/floor/stairs, and a Super Magic meteor attack.
-- Server-authoritative spell casting, mana spending, shop purchases, apple buying/selling, and money generation.
+- Server-side mana spending and spell cooldown checks, plus apple buying/selling and resource-generation handlers. Shop unlocks and generic purchase costs still rely on client logic; see limitations below.
 - NPC archers and magicians with patrol behavior, player detection, pathfinding, attacks, death rewards, and respawn flow.
 - Shop and skill UI with static Roblox GUI properties, not runtime-only styling.
 - Basic player persistence for money and mana in published servers, with Studio-safe DataStore fallback.
@@ -74,6 +74,9 @@ Abilities must be unlocked from the in-game shop before they appear in the skill
 
 ## How To Open
 
+The place and combat GIFs use Git LFS. After cloning, run `git lfs pull` to download their full contents. A pointer-only checkout or source ZIP may not contain an openable place. Install Git LFS if necessary.
+
+
 1. Open Roblox Studio.
 2. Choose `File -> Open from File`.
 3. Select `places/ArcaneOrchardRPG.rbxlx`.
@@ -92,6 +95,12 @@ When testing in Studio, DataStore persistence is intentionally skipped to avoid 
 - Replaced an inaccessible animation asset with a safe fallback.
 
 See [docs/CHANGELOG.md](docs/CHANGELOG.md) for the full cleanup log.
+
+## Prototype Limitations
+
+The generic `BuyEvent` receives a client-supplied cost, while ability unlocks are controlled by the local shop UI. Server spell cooldown/mana checks do not establish a secure server-side purchase/unlock model. Persistence uses `SetAsync` without session locking and does not distinguish a failed load from a new profile. These are required follow-up areas before a multiplayer release.
+
+The 19 October 2026 audit reviewed extracted scripts and existing media; it did not complete a fresh Studio multiplayer or live DataStore test. Do not present this as a shipped or production-hardened game.
 
 ## Portfolio Notes
 
