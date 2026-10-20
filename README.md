@@ -6,7 +6,7 @@
 
 Players earn coins from generators, apple trading and enemy kills, unlock spells in the shop and fight archers and magicians that patrol the map. Full-length captures: [NPC combat](media/npc-combat.gif) · [Super Magic](media/super-magic.gif) · [shop](media/shop-ui.png) · [skills](media/skills-ui.png) · [world](media/world-overview.png).
 
-## What I built
+## What the game has
 
 - **Spell system**: 7 spells (Fireball, Ice Arrow, Spikes, Wall, Floor, Stairs, Super Magic). Projectiles move on one Heartbeat stepper and raycast between frames, so fast spells do not pass through targets.
 - **Server-authoritative shop**: the client sends only an item id; the server owns prices, unlocks and generator levels.
@@ -93,9 +93,11 @@ luau tests/Economy.spec.luau
 
 The enemy rigs use the default Roblox `Animate` script; the apple tool, orchard trees, mill and smithy bellows are Roblox template assets with their own small scripts, kept in the place file.
 
-## Built with an AI-assisted workflow
+## How it was made
 
-I designed the game, its systems and the architecture, and I reviewed and tested every change. I use AI coding assistants to speed up implementation and refactoring, the same way I use linters and type checking: as tools, with the decisions and the final review done by me.
+- **Origin:** started as a learning project I built together with a student at Itgenio. The enemy NPC scripts (patrol, pathfinding, attacks) are mine.
+- **2026:** refactored with AI coding agents (Codex, Claude) under my direction: the Rojo layout, server-side validation and rate limiting, DataStore saving with retries, strict typing, tests and CI. I set the goals, reviewed the changes and playtested the result.
+- **Studio check (Oct 2026):** the refactored code was installed into the place and playtested in Studio: shop purchases, spell casts, rejected invalid casts, enemy attacks, kill rewards, respawns and the money generator work. Fireball, Ice Arrow, Spikes and Super Magic were not playtested in that session.
 
 ## Known limitations / next steps
 
