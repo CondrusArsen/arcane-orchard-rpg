@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  lint:
+    name: Lint, type-check and test
+    runs-on: ubuntu-latest
+    env:
+      # Keep in sync with rokit.toml.
+      SELENE_VERSION: 0.29.0
+      STYLUA_VERSION: 2.6.0
+      ROJO_VERSION: 7.5.1
+      LUAU_LSP_VERSION: 1.70.1
+      LUAU_VERSION: "0.700"
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install tools
+        run: |
+          mkdir -p "$HOME/bin"
+          cd "$(mktemp -d)"
+          fetch() { curl -fsSL -o tool.zip "$1" && unzip -o -q tool.zip -d "$HOME/bin" && rm tool.zip; }
+          fetch "https://github.com/Kampfkarren/selene/releases/download/${SELENE_VERSION}/selene-${SELENE_VERSION}-linux.zip"
+          fetch "https://github.com/JohnnyMorganz/StyLua/releases/download/v${STYLUA_VERSION}/stylua-linux-x86_64.zip"
+          fetch "https://github.com/rojo-rbx/rojo/releases/download/v${ROJO_VERSION}/rojo-${ROJO_VERSION}-linux-x86_64.zip"
+          fetch "https://github.com/JohnnyMorganz/luau-lsp/releases/download/${LUAU_LSP_VERSION}/luau-lsp-linux-x86_64.zip"
+          fetch "https://github.com/luau-lang/luau/releases/download/${LUAU_VERSION}/luau-ubuntu.zip"
+          curl -fsSL -o "$HOME/bin/globalTypes.d.luau" \
+            "https://raw.githubusercontent.com/JohnnyMorganz/luau-lsp/${LUAU_LSP_VERSION}/scripts/globalTypes.None.d.luau"
+          chmod +x "$HOME/bin/"*
+          echo "$HOME/bin" >> "$GITHUB_PATH"
+
+      - name: StyLua (format check)
+        run: stylua --check src tools tests
+
+      - name: Selene (lint)
+        run: selene src tools tests
+
+      - name: Rojo build
+        run: rojo build default.project.json --output build.rbxl
+
+      - name: Luau type check (strict)
+        run: |
+          rojo sourcemap default.project.json --output sourcemap.json
+          luau-lsp analyze --sourcemap=sourcemap.json --definitions="$HOME/bin/globalTypes.d.luau" src tests
+
+      - name: Unit tests
+        run: luau tests/Economy.spec.luau
