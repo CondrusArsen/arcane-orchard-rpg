@@ -1,0 +1,34 @@
+{
+  "name": "arcane-orchard-rpg",
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+      "Shared": {
+        "$path": "src/shared"
+      },
+      "Remotes": {
+        "$className": "Folder",
+        "CastSpell": {
+          "$className": "RemoteEvent"
+        },
+        "PurchaseItem": {
+          "$className": "RemoteEvent"
+        },
+        "SellApple": {
+          "$className": "RemoteEvent"
+        },
+        "Notify": {
+          "$className": "RemoteEvent"
+        }
+      }
+    },
+    "ServerScriptService": {
+      "$path": "src/server"
+    },
+    "StarterPlayer": {
+      "StarterPlayerScripts": {
+        "$path": "src/client"
+      }
+    }
+  }
+}
