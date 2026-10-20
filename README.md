@@ -100,10 +100,8 @@ See [docs/CHANGELOG.md](docs/CHANGELOG.md) for the full cleanup log.
 
 The generic `BuyEvent` receives a client-supplied cost, while ability unlocks are controlled by the local shop UI. Server spell cooldown/mana checks do not establish a secure server-side purchase/unlock model. Persistence uses `SetAsync` without session locking and does not distinguish a failed load from a new profile. These are required follow-up areas before a multiplayer release.
 
-The 19 October 2026 audit reviewed extracted scripts and existing media; it did not complete a fresh Studio multiplayer or live DataStore test. Do not present this as a shipped or production-hardened game.
+## Why It Matters
 
-## Portfolio Notes
-
-This is best presented as a polished prototype, not a finished commercial game. The value of the project is in the breadth of Roblox systems it touches: client/server events, GUI work, NPC AI, pathfinding, combat effects, economy, persistence, tools, and world scripting.
+This is a learning prototype rather than a released game. Its value is in the breadth of Roblox systems it touches: client/server events, GUI work, NPC AI, pathfinding, combat effects, economy, persistence, tools, and world scripting.
 
 The GIFs are intentionally kept as short gameplay captures. If the repository is cloned locally, Git LFS is recommended for downloading the larger media files and the Roblox place file cleanly.
