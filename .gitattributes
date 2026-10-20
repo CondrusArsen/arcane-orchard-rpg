@@ -1,5 +1,7 @@
 *.rbxlx linguist-generated=false
-*.luau linguist-language=Lua
-*.lua linguist-language=Lua
+*.luau linguist-language=Luau
 *.rbxlx filter=lfs diff=lfs merge=lfs -text
 *.gif filter=lfs diff=lfs merge=lfs -text
+
+# Small README preview, stored directly in git so it renders without LFS
+media/gameplay.gif -filter -diff -merge -text

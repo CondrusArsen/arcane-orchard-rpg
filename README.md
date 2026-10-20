@@ -1,107 +1,105 @@
 # Arcane Orchard RPG
 
-Arcane Orchard RPG is a Roblox RPG prototype focused on magic combat, NPC encounters, resource collection, and a small upgrade economy. The project started as a learning game built together with a child and was later revised with server-side spell checks, clearer UI, and extracted Luau scripts for review. It remains a learning prototype.
+**A co-op Roblox magic RPG with a server-authoritative economy, data-driven enemy AI and a Rojo + CI toolchain.**
 
-## Project Highlights
+![Gameplay: NPC combat and the Super Magic meteor shower](media/gameplay.gif)
 
-- Medieval/fantasy Roblox world with fields, orchard trees, structures, props, boosters, and NPC patrol routes.
-- Magic system with fireball, ice arrow, spikes, buildable wall/floor/stairs, and a Super Magic meteor attack.
-- Server-side mana spending and spell cooldown checks, plus apple buying/selling and resource-generation handlers. Shop unlocks and generic purchase costs still rely on client logic; see limitations below.
-- NPC archers and magicians with patrol behavior, player detection, pathfinding, attacks, death rewards, and respawn flow.
-- Shop and skill UI with static Roblox GUI properties, not runtime-only styling.
-- Basic player persistence for money and mana in published servers, with Studio-safe DataStore fallback.
+Players earn coins from generators, apple trading and enemy kills, unlock spells in the shop and fight archers and magicians that patrol the map. Full-length captures: [NPC combat](media/npc-combat.gif) · [Super Magic](media/super-magic.gif) · [shop](media/shop-ui.png) · [skills](media/skills-ui.png) · [world](media/world-overview.png).
 
-## Gameplay Preview
+## What I built
 
-### World
-
-![World overview](media/world-overview.png)
-
-### Shop And Skills
-
-![Shop UI](media/shop-ui.png)
-
-![Skills UI](media/skills-ui.png)
-
-### Combat
-
-<details>
-<summary>Super Magic demo</summary>
-
-![Super Magic demo](media/super-magic.gif)
-
-</details>
-
-<details>
-<summary>NPC combat demo</summary>
-
-![NPC combat demo](media/npc-combat.gif)
-
-</details>
+- **Spell system**: 7 spells (Fireball, Ice Arrow, Spikes, Wall, Floor, Stairs, Super Magic). Projectiles move on one Heartbeat stepper and raycast between frames, so fast spells do not pass through targets.
+- **Server-authoritative shop**: the client sends only an item id; the server owns prices, unlocks and generator levels.
+- **Resource economy**: mana regeneration, a mana generator, a money generator that converts mana into coins, and an apple market with a shared price that changes every 30 seconds.
+- **Enemy AI**: one `NpcBrain` module drives every enemy type from config (detection radius, attack list with ranges, reward). Patrol uses `PathfindingService` with a fallback when no path is found.
+- **Persistence**: money, mana, unlocks and generator levels saved with `DataStoreService`.
+- **Combat rules**: one `Combat` module decides who can damage whom (no NPC friendly fire, PvP behind a flag) and tags the attacker for kill rewards.
+- **Building spells**: walls, floors and stairs face the caster, expire after 45 s and are capped per player.
+- **Tooling**: Rojo project, `--!strict` Luau with type annotations, Selene, StyLua, unit tests for the economy rules, GitHub Actions CI.
 
 ## Controls
 
-| Key | Ability |
-| --- | --- |
-| `Q` | Fireball |
-| `E` | Ice Arrow |
-| `X` | Spikes |
-| `C` | Wall |
-| `R` | Floor |
-| `F` | Stairs |
-| `T` | Super Magic |
+| Key | Spell | Key | Spell |
+| --- | --- | --- | --- |
+| `Q` | Fireball | `C` | Wall |
+| `E` | Ice Arrow | `R` | Floor |
+| `X` | Spikes | `F` | Stairs |
+| `T` | Super Magic | | |
 
-Abilities must be unlocked from the in-game shop before they appear in the skill UI.
+Spikes, buildings and Super Magic are aimed with the mouse. Spells are unlocked in the shop (**Open Market** button).
 
-## Repository Structure
+## Architecture
 
 ```text
-.
-├── places/
-│   └── ArcaneOrchardRPG.rbxlx
-├── src/
-│   ├── extracted-scripts/
-│   └── scripts_manifest.json
-├── docs/
-│   ├── CHANGELOG.md
-│   ├── PROJECT_OVERVIEW.md
-│   ├── SCRIPT_INVENTORY.md
-│   └── TESTING.md
-├── media/
-│   └── README.md
-└── tools/
+ CLIENT (StarterPlayerScripts)                SERVER (ServerScriptService)
+ ─────────────────────────────                ──────────────────────────────────────
+ SpellInput ── CastSpell(id, target?) ──────▶ SpellService
+ ShopController ── PurchaseItem(id) ────────▶ ShopService ─▶ AppleMarket
+ ShopController ── SellApple() ─────────────▶ AppleMarket
+                                                │ 1. rate limit
+                                                │ 2. validate argument types
+                                                │ 3. check rules (unlocked, cooldown,
+                                                │    range, price, level cap)
+                                                ▼
+                                              PlayerData (session state, DataStore)
+                                                │ 4. change state
+                                                ▼
+ Hud / ShopController / SpellInput ◀───────── Player attributes (Money, Mana,
+   re-render on attribute change               Unlocked_<spell>, generator levels)
+                                               replicate to the owning client
+ ShopController ◀── Notify(message) ───────── feedback text only, never state
 ```
 
-## How To Open
+- `src/shared` (ReplicatedStorage.Shared): config modules used by both sides. Spell costs, cooldowns, prices, generator rates and enemy archetypes each have **one** definition, so the shop, the hotbar and the server checks cannot disagree.
+- `src/server` (ServerScriptService): `Main.server.luau` starts the services in order. Services are plain ModuleScripts with a `start()` function.
+- `src/client` (StarterPlayerScripts): controllers only render replicated state and send requests.
+- `places/ArcaneOrchardRPG.rbxlx`: the map, UI layouts and art prefabs (spell models, enemy rigs, apple tool). Prefabs are treated as visuals; any server script inside them is removed on clone so behaviour lives only in `src/`.
 
-The place and combat GIFs use Git LFS. After cloning, run `git lfs pull` to download their full contents. A pointer-only checkout or source ZIP may not contain an openable place. Install Git LFS if necessary.
+## Security & data
 
+- **No client-trusted values.** Remotes carry ids and an aim point only. Prices, mana costs, cooldowns and damage come from config on the server.
+- **Every remote is validated**: per-player token-bucket rate limit, `typeof` checks, finite-number checks for `Vector3`, range check against the character position, unlock and cooldown checks. Mana is spent only after all checks pass.
+- **Resources tick on the server.** Generator levels change only through a validated purchase.
+- **Apple trading** removes the apple before paying, so a repeated request cannot sell the same apple twice.
+- **DataStore**: `GetAsync` and `UpdateAsync` with retries and exponential backoff. If loading fails, the player plays on a default profile flagged `canSave = false`, so an outage never overwrites real progress. Saved data is validated on load (types, ranges, known spell ids). Saves run on leave, on a 60 s autosave for changed profiles and in `BindToClose` (waits for in-flight saves). Studio sessions do not touch DataStores.
+- **Bounded server load**: built structures expire and are capped per player, spell effects clean themselves up, and per-player tables are cleared on `PlayerRemoving`.
 
-1. Open Roblox Studio.
-2. Choose `File -> Open from File`.
-3. Select `places/ArcaneOrchardRPG.rbxlx`.
-4. Press `Play` to test the prototype.
+## How to run
 
-When testing in Studio, DataStore persistence is intentionally skipped to avoid local API permission errors. In a published Roblox experience, the same save script can use DataStoreService.
+Requirements: Roblox Studio, [Rokit](https://github.com/rojo-rbx/rokit) (or Rojo 7.5 installed another way) and the Rojo Studio plugin. The place file is stored with Git LFS.
 
-## What Was Cleaned Up
+```bash
+git lfs install
+git clone https://github.com/CondrusArsen/arcane-orchard-rpg.git
+cd arcane-orchard-rpg
+rokit install          # rojo, selene, stylua, luau-lsp at the pinned versions
+rojo serve
+```
 
-- Replaced an unsafe Super Magic loop with a capped meteor burst.
-- Restored Super Magic explosions while preventing map destruction.
-- Moved UI styling into saved `StarterGui` properties.
-- Replaced duplicated booster scripts with shared controllers.
-- Added server-side validation for economy and spell events.
-- Hardened apple healing, NPC rewards, projectile cleanup, and shop unlocks.
-- Replaced an inaccessible animation asset with a safe fallback.
+1. Open `places/ArcaneOrchardRPG.rbxlx` in Roblox Studio.
+2. In the Rojo plugin, click **Connect**. The code from `src/` is synced into the place.
+3. One time only: paste `tools/clean-place.luau` into the Studio command bar and press Enter. It removes the scripts that were stored inside the place before the code moved to `src/`, then save the place.
+4. Press **Play**.
 
-See [docs/CHANGELOG.md](docs/CHANGELOG.md) for the full cleanup log.
+Checks that CI runs (`.github/workflows/ci.yml`):
 
-## Prototype Limitations
+```bash
+stylua --check src tools tests
+selene src tools tests
+rojo sourcemap default.project.json -o sourcemap.json
+luau-lsp analyze --sourcemap=sourcemap.json --definitions=globalTypes.d.luau src tests
+luau tests/Economy.spec.luau
+```
 
-The generic `BuyEvent` receives a client-supplied cost, while ability unlocks are controlled by the local shop UI. Server spell cooldown/mana checks do not establish a secure server-side purchase/unlock model. Persistence uses `SetAsync` without session locking and does not distinguish a failed load from a new profile. These are required follow-up areas before a multiplayer release.
+The enemy rigs use the default Roblox `Animate` script; the apple tool, orchard trees, mill and smithy bellows are Roblox template assets with their own small scripts, kept in the place file.
 
-## Why It Matters
+## Built with an AI-assisted workflow
 
-This is a learning prototype rather than a released game. Its value is in the breadth of Roblox systems it touches: client/server events, GUI work, NPC AI, pathfinding, combat effects, economy, persistence, tools, and world scripting.
+I designed the game, its systems and the architecture, and I reviewed and tested every change. I use AI coding assistants to speed up implementation and refactoring, the same way I use linters and type checking: as tools, with the decisions and the final review done by me.
 
-The GIFs are intentionally kept as short gameplay captures. If the repository is cloned locally, Git LFS is recommended for downloading the larger media files and the Roblox place file cleanly.
+## Known limitations / next steps
+
+- No cross-server session locking yet: the next step is moving `PlayerData` to ProfileStore.
+- Keyboard and mouse controls only; touch and gamepad bindings are planned.
+- Unit tests cover the pure economy rules; server services are verified by manual playtests in Studio (see [docs/TESTING.md](docs/TESTING.md)).
+- Publish the place and add a public "Play" link.
