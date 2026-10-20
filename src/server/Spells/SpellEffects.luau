@@ -262,7 +262,7 @@ function SpellEffects.super(attacker: Attacker, target: Vector3)
 			if not attacker.model.Parent then
 				return
 			end
-			local meteor = Prefabs.cloneSpellVisual("Superior_Magicions")
+			local meteor = Prefabs.cloneSpellVisual("SuperMagicMeteor")
 			if not meteor then
 				return
 			end

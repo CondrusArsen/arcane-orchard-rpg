@@ -31,7 +31,7 @@ local archetypes: { [string]: Archetype } = {
 			{ spell = "IceArrow", minRange = 0, maxRange = 100, recovery = 3.25 },
 		},
 	},
-	Magicion = {
+	Magician = {
 		detectRadius = 210,
 		walkSpeed = 16,
 		reward = 35,

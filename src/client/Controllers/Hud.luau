@@ -35,13 +35,26 @@ local function bindAttribute(name: string, callback: () -> ())
 	player:GetAttributeChangedSignal(name):Connect(callback)
 end
 
+-- Waits for the first child with any of the given names (labels were renamed between place versions).
+local function waitForAny(parent: Instance, names: { string }): Instance
+	while true do
+		for _, name in names do
+			local child = parent:FindFirstChild(name)
+			if child then
+				return child
+			end
+		end
+		parent.ChildAdded:Wait()
+	end
+end
+
 local function bindStats(valueGui: Instance)
 	local manaPanel = valueGui:WaitForChild("ManaBackGround")
 	local manaBar = manaPanel:WaitForChild("ManaBar") :: GuiObject
-	local manaText = manaPanel:WaitForChild("Persent") :: TextLabel
+	local manaText = waitForAny(manaPanel, { "ManaPercent", "Persent" }) :: TextLabel
 	local hpPanel = valueGui:WaitForChild("HPBackGround")
 	local hpBar = hpPanel:WaitForChild("HPbar") :: GuiObject
-	local hpText = hpPanel:WaitForChild("HPpersent") :: TextLabel
+	local hpText = waitForAny(hpPanel, { "HealthPercent", "HPpersent" }) :: TextLabel
 	local coins = valueGui:WaitForChild("Coins_Safe") :: TextLabel
 
 	bindAttribute(Attributes.Mana, function()
