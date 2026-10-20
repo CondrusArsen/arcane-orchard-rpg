@@ -2,6 +2,8 @@
 -- Balance-rule tests for the pure economy config. Run with the Luau CLI:
 --   luau tests/Economy.spec.luau
 
+-- The test runs under the plain Luau CLI, which resolves string paths.
+-- selene: allow(incorrect_standard_library_use)
 local Economy = require("../src/shared/Config/Economy")
 
 local failures = 0
